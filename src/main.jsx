@@ -1,10 +1,16 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
-import App from './App.jsx'
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import "./index.css";
+import { ProductProvider } from "./Products/ProductContext.jsx";
+import { FilterProvider } from "./Filter/FilterContext.jsx";
+import App from "./App.jsx";
 
-createRoot(document.getElementById('root')).render(
+createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <App />
+    <ProductProvider>
+      <FilterProvider>
+        <App />
+      </FilterProvider>
+    </ProductProvider>
   </StrictMode>,
-)
+);
